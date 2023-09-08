@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataMinerPackageCreatorHelperClass</name>
+    </assembly>
+    <members>
+        <member name="T:DataMinerPackageCreatorHelperClass.XmlBuilder">
+            <summary>
+            Provides methods for creating protocol xml file with C# code from MS Visual Studio solution.
+            </summary>
+            <remarks>
+            Built to work with Skyline.DataMiner.CICD.DMApp.Automation
+            </remarks>
+        </member>
+        <member name="M:DataMinerPackageCreatorHelperClass.XmlBuilder.ProtocolXmlFileBuilder(System.String,System.String,System.String@,System.Boolean)">
+            <summary>
+            Creates protocolWithCs.xml file by inserting QAction code to the protocol.xml file located in the MS Visual Studio solution. <br/>
+            Out: string path to the protocolWithCs.xml file. <br/><br/>
+            
+            Requires read access to solutionFolderPath. <br/>
+            Requires read/write access to the destinationFolderPath. <br/>
+            
+            destinationFolderPath must be different from solutionFolderPath (default)
+            
+            </summary>
+            <remarks>
+            Exceptions: <br/><br/>
+            
+            'solutionFolderPath and destinationFolderPath cannot be the same' exception (only if isSameDestAllowed == false [default]) <br/>
+            'File protocol.xml in [solutionFolderPath] was not found.' exception. <br/>
+            'File protocolWithCs.xml in [destinationFolderPath] already exists. Please delete or rename the file and try again.' exception. <br/>
+            </remarks>
+        </member>
+        <member name="M:DataMinerPackageCreatorHelperClass.XmlBuilder.ProtocolXmlBytesArrayBuilder(System.String,System.Byte[]@,System.Boolean)">
+            <summary>
+            Creates byte[] of protocol.xml by inserting QAction code to the protocol.xml file in the MS Visual Studio solution. <br/>
+            Out: byte[] of the complete protocol.xml file. <br/><br/>
+            
+            Requires read access to solutionFolderPath. <br/>
+            Optional LOH CompactOnce mode can be enabled by setting isLohGcCompactOnceEnabled == true.
+            </summary>
+            <remarks>
+            
+            Exceptions: <br/><br/>
+            
+            'File protocol.xml in [solutionFolderPath] was not found.' exception.
+            </remarks>
+        </member>
+    </members>
+</doc>
