@@ -30,13 +30,13 @@ Public methods:
 
     public static bool ProtocolXmlBytesArrayBuilder (string solutionFolderPath, out byte[] protocolWithCsXmlBytesArray, bool isLohGcCompactOnceEnabled = false)
 
-    Creates byte[] of protocol.xml by inserting QAction code to the protocol.xml file in the MS Visual Studio solution. <br/>
-    Out: byte[] of the complete protocol.xml file. <br/><br/>
+    Creates byte[] of protocol.xml by inserting QAction code to the protocol.xml file in the MS Visual Studio solution.
+    Out: byte[] of the complete protocol.xml file.
 
-    Requires read access to solutionFolderPath. <br/>
+    Requires read access to solutionFolderPath.
     Optional LOH CompactOnce mode can be enabled by setting isLohGcCompactOnceEnabled == true.
 
-    Exceptions: <br/><br/>
+    Exceptions:
 
     'File protocol.xml in [solutionFolderPath] was not found.' exception.
 
@@ -96,13 +96,14 @@ Example implementation:
     using DataMinerPackageCreatorHelperClass;
 
     string solutionFolderPath = "C:\\Users\\iuser\\repos\\MyVSProjectFolder";
+    string destinationFolderPath = "C:\\Users\\iuser\\repos\\TempFolder";
     byte[] protocolBytes;
 
     bool success = XmlBuilder.ProtocolXmlBytesArrayBuilder(solutionFolderPath, out protocolBytes);
 
     if (success)
     {
-        var protocolBuilder = new AppPackageProtocol.AppPackageProtocolBuilder("MyProtocol", "1.0.1", protocolWithCsPath);
+        var protocolBuilder = new AppPackageProtocol.AppPackageProtocolBuilder("MyProtocol", "1.0.1", protocolBytes);
 
         IAppPackageProtocol protocol = protocolBuilder.Build();
 
